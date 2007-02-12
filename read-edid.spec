@@ -1,5 +1,5 @@
 Summary:	Gets various useful informations from a conforming PnP monitor
-Summary(pl.UTF-8):   Pobieranie różnych przydatnych informacji z monitora zgodnego z PnP
+Summary(pl.UTF-8):	Pobieranie różnych przydatnych informacji z monitora zgodnego z PnP
 Name:		read-edid
 Version:	1.4.1
 Release:	0.1
