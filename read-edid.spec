@@ -1,5 +1,5 @@
 Summary:	Gets various useful informations from a conforming PnP monitor
-Summary(pl):	Pobieranie ró¿nych przydatnych informacji z monitora zgodnego z PnP
+Summary(pl.UTF-8):   Pobieranie rÃ³Å¼nych przydatnych informacji z monitora zgodnego z PnP
 Name:		read-edid
 Version:	1.4.1
 Release:	0.1
@@ -28,20 +28,20 @@ hardware (real-mode x86 instructions on i386, Open Firmware device
 tree parsing on PowerMac) and is therefore only available for i386 and
 powerpc architectures.
 
-%description -l pl
-read-edid to narzêdzie do zbierania informacji dotycz±cych sprzêtu dla
-monitorów VESA PnP, sk³adaj±ce siê z dwóch programów:
+%description -l pl.UTF-8
+read-edid to narzÄ™dzie do zbierania informacji dotyczÄ…cych sprzÄ™tu dla
+monitorÃ³w VESA PnP, skÅ‚adajÄ…ce siÄ™ z dwÃ³ch programÃ³w:
 
-get-edid u¿ywa ¿±dania funkcji przerwania VESA VBE 2 do odczytu
-128-bajtowej struktury EDID w wersji 1 od karty graficznej, która
+get-edid uÅ¼ywa Å¼Ä…dania funkcji przerwania VESA VBE 2 do odczytu
+128-bajtowej struktury EDID w wersji 1 od karty graficznej, ktÃ³ra
 pobiera te informacje z monitora poprzez DDC (Data Display Channel).
 
-parse-edid analizuje tê strukturê danych i wypisuje dane nadaj±ce siê
+parse-edid analizuje tÄ™ strukturÄ™ danych i wypisuje dane nadajÄ…ce siÄ™
 do wstawienia do pliku konfiguracyjnego XFree86 lub X.org.
 
-get-edit u¿ywa specyficznych dla architektury metod odpytywania karty
+get-edit uÅ¼ywa specyficznych dla architektury metod odpytywania karty
 graficznej (instrukcji w trybie rzeczywistym x86 na i386, analizy
-drzewa urz±dzeñ OpenFirmware na PowerMacu), wiêc jest dostêpne tylko
+drzewa urzÄ…dzeÅ„ OpenFirmware na PowerMacu), wiÄ™c jest dostÄ™pne tylko
 dla architektur i386 i powerpc.
 
 %prep
