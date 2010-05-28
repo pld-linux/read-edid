@@ -1,14 +1,14 @@
 Summary:	Gets various useful informations from a conforming PnP monitor
 Summary(pl.UTF-8):	Pobieranie różnych przydatnych informacji z monitora zgodnego z PnP
 Name:		read-edid
-Version:	1.4.1
-Release:	0.1
+Version:	2.0.0
+Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://john.fremlin.de/programs/linux/read-edid/%{name}-%{version}.tar.gz
-# Source0-md5:	aadc9a21ea4a1c9819757cda973372f4
-Source1:	%{name}-get-edid-ppc.sh
-URL:		http://john.fremlin.de/programs/linux/read-edid/index.html
+Source0:	http://polypux.org/projects/read-edid/%{name}-%{version}.tar.gz
+# Source0-md5:	586e7fa1167773b27f4e505edc93274b
+URL:		http://polypux.org/projects/read-edid/
+BuildRequires:	libx86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,26 +49,13 @@ dla architektur i386 i powerpc.
 
 %build
 %configure
-%{__make} \
-%ifnarch %{ix86}
-	parse-edid
-%endif
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-install parse-edid $RPM_BUILD_ROOT%{_bindir}/parse-edid
-
-%ifarch %{ix86}
-install get-edid $RPM_BUILD_ROOT%{_bindir}/get-edid
-%endif
-%ifarch ppc
-install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/get-edid
-%endif
-
-install get-edid.man $RPM_BUILD_ROOT%{_mandir}/man1/get-edid.1
-echo ".so get-edid.1" > $RPM_BUILD_ROOT%{_mandir}/man1/parse-edid.1
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -76,11 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%ifarch %{ix86}
-%doc LRMI
-%endif
-%attr(755,root,root) %{_bindir}/parse-edid
-%ifarch %{ix86} ppc
-%attr(755,root,root) %{_bindir}/get-edid
-%endif
+%attr(755,root,root) %{_sbindir}/parse-edid
+%attr(755,root,root) %{_sbindir}/get-edid
 %{_mandir}/man1/*-edid.1*
