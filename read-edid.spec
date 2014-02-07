@@ -1,12 +1,12 @@
 Summary:	Gets various useful informations from a conforming PnP monitor
 Summary(pl.UTF-8):	Pobieranie różnych przydatnych informacji z monitora zgodnego z PnP
 Name:		read-edid
-Version:	3.0.0
+Version:	3.0.1
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://polypux.org/projects/read-edid/%{name}-%{version}.tar.gz
-# Source0-md5:	2ac6821cb3ef2eb7f62583f49f0867e0
+# Source0-md5:	81f6a57162127ab9e969da53bc290e63
 URL:		http://polypux.org/projects/read-edid/
 BuildRequires:	cmake >= 2.6
 BuildRequires:	libx86-devel
@@ -60,17 +60,15 @@ rm -rf $RPM_BUILD_ROOT
 
 # bleh... broken cmakefiles
 %{__mv} $RPM_BUILD_ROOT%{_prefix}/{bin,sbin}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
-%{__mv} $RPM_BUILD_ROOT%{_prefix}/man/get-edid.man $RPM_BUILD_ROOT%{_mandir}/man1/get-edid.1
 # packaged as %doc
-%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_sbindir}/get-edid
 %attr(755,root,root) %{_sbindir}/parse-edid
 %{_mandir}/man1/get-edid.1*
