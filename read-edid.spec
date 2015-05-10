@@ -1,12 +1,12 @@
 Summary:	Gets various useful informations from a conforming PnP monitor
 Summary(pl.UTF-8):	Pobieranie różnych przydatnych informacji z monitora zgodnego z PnP
 Name:		read-edid
-Version:	3.0.1
+Version:	3.0.2
 Release:	1
-License:	GPL v2
+License:	BSD-like (see LICENSE, distributed modifications must be sent to author)
 Group:		Applications/System
 Source0:	http://polypux.org/projects/read-edid/%{name}-%{version}.tar.gz
-# Source0-md5:	81f6a57162127ab9e969da53bc290e63
+# Source0-md5:	016546e438bf6c98739ff74061df9854
 URL:		http://polypux.org/projects/read-edid/
 BuildRequires:	cmake >= 2.6
 BuildRequires:	libx86-devel
@@ -48,6 +48,9 @@ dla architektur i386 i powerpc.
 %prep
 %setup -q
 
+# CMakeLists.txt expects COPYING, not LICENSE
+%{__mv} LICENSE COPYING
+
 %build
 %cmake .
 %{__make}
@@ -68,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS COPYING ChangeLog README
 %attr(755,root,root) %{_sbindir}/get-edid
 %attr(755,root,root) %{_sbindir}/parse-edid
 %{_mandir}/man1/get-edid.1*
